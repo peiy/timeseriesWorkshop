@@ -1,10 +1,26 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{constraintBook}
 Sugato Basu, Ian Davidson, and Kiri Wagstaff.
 \newblock {\em Constrained Clustering: Advances in Algorithms, Theory, and
   Applications}.
 \newblock Chapman \& Hall/CRC, 1 edition, 2008.
+
+\bibitem{Bicego2006}
+Manuele Bicego, Marco Cristani, and Vittorio Murino.
+\newblock Unsupervised scene analysis: A hidden markov model approach.
+\newblock {\em Computer Vision and Image Understanding}, 102(1):22 -- 41, 2006.
+
+\bibitem{bicego2003}
+Manuele Bicego, Vittorio Murino, and M{\'a}rio~AT Figueiredo.
+\newblock Similarity-based clustering of sequences using hidden markov models.
+\newblock In {\em Machine learning and data mining in pattern recognition},
+  pages 86--95. Springer, 2003.
+
+\bibitem{coviello2014}
+Emanuele Coviello, Antoni~B Chan, and Gert~RG Lanckriet.
+\newblock Clustering hidden markov models with variational hem.
+\newblock {\em The Journal of Machine Learning Research}, 15(1):697--747, 2014.
 
 \bibitem{dbindex}
 David~L Davies and Donald~W Bouldin.
@@ -23,6 +39,13 @@ Michael~D Escobar and Mike West.
 \newblock Bayesian density estimation and inference using mixtures.
 \newblock {\em Journal of the american statistical association},
   90(430):577--588, 1995.
+
+\bibitem{menendez2014}
+H{\'e}ctor~D Men{\'e}ndez, Rafael Vindel, and David Camacho.
+\newblock Combining time series and clustering to extract gamer profile
+  evolution.
+\newblock In {\em Computational Collective Intelligence. Technologies and
+  Applications}, pages 262--271. Springer, 2014.
 
 \bibitem{neal2000markov}
 Radford~M Neal.
