@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{constraintBook}
+Sugato Basu, Ian Davidson, and Kiri Wagstaff.
+\newblock {\em Constrained Clustering: Advances in Algorithms, Theory, and
+  Applications}.
+\newblock Chapman \& Hall/CRC, 1 edition, 2008.
+
+\bibitem{dbindex}
+David~L Davies and Donald~W Bouldin.
+\newblock A cluster separation measure.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, (2):224--227, 1979.
+
+\bibitem{collapsed_escobar}
+Michael~D Escobar.
+\newblock Estimating normal means with a dirichlet process prior.
+\newblock {\em Journal of the American Statistical Association},
+  89(425):268--277, 1994.
+
+\bibitem{dpclustering}
+Michael~D Escobar and Mike West.
+\newblock Bayesian density estimation and inference using mixtures.
+\newblock {\em Journal of the american statistical association},
+  90(430):577--588, 1995.
+
+\bibitem{neal2000markov}
+Radford~M Neal.
+\newblock Markov chain sampling methods for dirichlet process mixture models.
+\newblock {\em Journal of computational and graphical statistics},
+  9(2):249--265, 2000.
+
+\bibitem{hmm}
+Lawrence~R. Rabiner and Biing-Hwang Juang.
+\newblock An introduction to hidden markov models.
+\newblock {\em ASSP Magazine, IEEE}, 3(1):4--16, 1986.
+
+\bibitem{moises}
+Dawn~B. Woodard and Moises Goldszmidt.
+\newblock Online model-based clustering for crisis identification in
+  distributed computing.
+\newblock {\em Journal of the American Statistical Association},
+  106(493):49--60, 2012.
+
+\end{thebibliography}

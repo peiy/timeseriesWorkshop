@@ -1,0 +1,20 @@
+As game industry immerses, playing games has become an important entertainment activity in our digital life. 
+To improve players' experience, it is very important for game companies to understand 
+player's behaviors and design user-specific features. As players may change their playing strategies 
+during the game-play, understanding gamer's playing pattens over time becomes an important task. 
+
+In this paper, we study the problem of understanding users' behaviors from their time series data obtained
+during the game-play.  In particular, we focus on two tasks: 
+1) what are the underlying playing states that controls user's behavior at each time period, 
+and 2) what are the natural groups of players based on their state transitions (game playing strategy). 
+We model user's time series data using Hidden Markov Model (HMM) \cite{hmm}, with the playing states as 
+the hidden nodes and the players' statistics at each time period as the observed features. 
+We fit the HMM model and find users' playing states by applying Viterbi decoding algorithm. 
+We then find the groups of players using an unsupervised Dirichlet clustering method.
+
+We experiment our method on a mobile strategy game developed by Zynga Inc. %, named {\it Empires and Allies}. 
+Our method found three underlying playing states, and  the clustering results reveal three 
+interesting groups that contains players with similar transition states within each group.
+All these results are helpful to understanding players' behaviors and improve the game design. 
+
+
