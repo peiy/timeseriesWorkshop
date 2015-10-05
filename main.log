@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.2)  5 OCT 2015 11:15
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.1.2)  5 OCT 2015 12:37
 entering extended mode
  %&-line parsing enabled.
 **main
@@ -329,9 +329,10 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 90.
  (./abstract.tex) (./intro.tex)
-(./related.tex) (./method.tex [1
+(./related.tex) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+(./method.tex
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -340,19 +341,19 @@ Overfull \hbox (10.226pt too wide) in paragraph at lines 44--54
  [][] 
  []
 
-[3] <transitions.png, id=105, 383.18156pt x 403.5075pt>
+[3] <transitions.png, id=104, 383.18156pt x 403.5075pt>
 File: transitions.png Graphic file (type png)
  <use transitions.png>
-<cluster1.png, id=106, 366.61969pt x 368.87813pt>
+<cluster1.png, id=105, 366.61969pt x 368.87813pt>
 File: cluster1.png Graphic file (type png)
  <use cluster1.png>
-<cluster2.png, id=107, 366.61969pt x 368.87813pt>
+<cluster2.png, id=106, 366.61969pt x 368.87813pt>
 File: cluster2.png Graphic file (type png)
  <use cluster2.png>
-<cluster3.png, id=108, 366.61969pt x 368.87813pt>
+<cluster3.png, id=107, 366.61969pt x 368.87813pt>
 File: cluster3.png Graphic file (type png)
  <use cluster3.png>
-<legend.png, id=109, 420.06938pt x 39.14626pt>
+<legend.png, id=108, 420.06938pt x 39.14626pt>
 File: legend.png Graphic file (type png)
  <use legend.png>
 Overfull \hbox (33.41777pt too wide) in paragraph at lines 74--80
@@ -364,27 +365,28 @@ same identifier (name{table.1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.21 \bibitem{dpclustering}
-                           pdfTeX warning (ext4): destination with the same ide
-ntifier (name{figure.1}) has been already used, duplicate ignored
+l.1 \begin{thebibliography}{1}
+                              pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.21 \bibitem{dpclustering}
-                           pdfTeX warning (ext4): destination with the same ide
-ntifier (name{figure.2}) has been already used, duplicate ignored
+l.1 \begin{thebibliography}{1}
+                              pdfTeX warning (ext4): destination with the same 
+identifier (name{figure.2}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.21 \bibitem{dpclustering}
-                           pdfTeX warning (ext4): destination with the same ide
-ntifier (name{table.2}) has been already used, duplicate ignored
+l.1 \begin{thebibliography}{1}
+                              pdfTeX warning (ext4): destination with the same 
+identifier (name{table.2}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.21 \bibitem{dpclustering}
-                            <./transitions.png (PNG copy)> <./cluster1.png> <./
-cluster2.png> <./cluster3.png> <./legend.png (PNG copy)>]) [5] (./main.aux) ) 
+l.1 \begin{thebibliography}{1}
+                               <./transitions.png (PNG copy)> <./cluster1.png> 
+<./cluster2.png> <./cluster3.png> <./legend.png (PNG copy)>]) [5] (./main.aux) 
+) 
 Here is how much of TeX's memory you used:
  4228 strings out of 256216
  55548 string characters out of 1917073
@@ -392,21 +394,20 @@ Here is how much of TeX's memory you used:
  7367 multiletter control sequences out of 10000+200000
  26550 words of font info for 61 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 30i,14n,36p,1057b,411s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/
-usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/blues
-ky/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx7.pfb></usr/share
-/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/
-cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></usr/share/te
-xmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/c
-mr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf/fo
-nts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.p
-fb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy5.pfb></usr/share/texmf/fonts/t
-ype1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb></
-usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/type
-1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr
-/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 424291 bytes).
+ 30i,14n,36p,1057b,378s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/bl
+uesky/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx7.pfb></usr/sh
+are/texmf/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/blues
+ky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi5.pfb></usr/share
+/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/c
+m/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf
+/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy1
+0.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy5.pfb></usr/share/texmf/font
+s/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy7.pfb
+></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf/fonts/t
+ype1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 424199 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  32 named destinations out of 1000 (max. 131072)

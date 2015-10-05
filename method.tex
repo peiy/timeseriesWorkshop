@@ -119,18 +119,18 @@ Substituting  (\ref{eq:condi}) and (\ref{eq:likeli}), we obtain
 ~ = & \displaystyle{ \prod_{k=1}^K 
       \left[ 
       \frac{\prod_s \Gamma(\bar \pi_s) \Gamma (\sum_s \hat \pi_s)}
-           {\Gamma\left( \sum_s (\bar \pi_s) \right) \prod_s \Gamma (\hat \pi_s)}
+           {\Gamma\left( \sum_s \bar \pi_s \right) \prod_s \Gamma (\hat \pi_s)}
       \right]  } \times
     \displaystyle{ \prod_{k=1}^K \prod_r 
       \left[ 
       \frac{\prod_s \Gamma(\bar B_{rs}) \Gamma (\sum_s \hat B_{rs})}
-           {\Gamma\left( \sum_s (\bar  B_{rs}) \right) \prod_s \Gamma (\hat B_{rs})}
+           {\Gamma\left( \sum_s \bar  B_{rs} \right) \prod_s \Gamma (\hat B_{rs})}
       \right] } ~,
 \end{array}
 \end{equation*}
 where
 $\bar \pi _s = \hat \pi_s + \sum_{i} \mathbf{1}[Z_i=k,Y_{i1} = s]$, and
-$\bar B_{rs} = \hat B_{rs} + \sum_{i} \mathbf{1}[Z_i=k] n_{irs} $.
+$\bar B_{rs} = \hat B_{rs} + \sum_{i} n_{irs}  \cdot \mathbf{1}[Z_i=k]$.
 
 Sampling $Z$ from Dirichlet distribution can be equivalently done as below \cite{neal2000markov}: 
 set $Z_1 = 1$; for subsequent players, sample $Z_i$ according to  the following distribution 
