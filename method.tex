@@ -55,7 +55,7 @@ where $Y_i = [Y_{i1}, \cdots, Y_{iT}]^\top$ denotes the $i$-th player's states f
 the $T$-th time. We denote $Z_i$ as the underlying cluster assignment for the $i$-th player. 
 Let $K$ be the total number of (unknown) clusters, which we will found automatically.
 
-\subsubsection{The Clustering Model}
+{\bf The Clustering Model:}
 We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}. 
 Suppose the clusters evolves according to a Dirichlet distribution with parameter $\alpha$.
 We assume that each cluster $k$ generates a Markov chain parametrized by $\{\lambda^k, \Phi^k\}$, 
@@ -69,15 +69,12 @@ The conditional probability
   P(\{\lambda^k, \Phi^k \}_{k=1}^K | Z ) 
 = \prod_k G_0(\{\lambda^k, \Phi^k\})~.
 \end{equation}
-
 %The data generation process is assumed as below \\
 %\begin{tabular}{l}
 %    \quad For each player $i$,\\
 %    \qquad 1. Sample cluster assignment $Z_i \sim Dir(\alpha)$  \\
 %    \qquad 2. Generate the state sequence $Y_{i1}, \cdots Y_{iT}$ with Markov chain parametrized by $\{\lambda^{Z_i}, \Phi^{Z_i}\}$.
 %\end{tabular}
- 
-
 Given the clustering model, the likelihood of the data of state transitions for all players is
 \begin{equation}
 \label{eq:likeli}
@@ -86,7 +83,7 @@ Given the clustering model, the likelihood of the data of state transitions for 
 \end{equation}
 where $\mathbf{1} [\cdot]$ is the indicator function, and $n_{irs}$ is the number of transitions from state $r$ to state $s$ for the $i$-th player.
 
-\subsubsection{MCMC Sampling of Posterior Distribution}
+{\bf MCMC Sampling of Posterior Distribution:}
 Here we use a collapsed-space sampling method \cite{neal2000markov,collapsed_escobar} to obtain samples from the reduced-spaced posterior distribution $P(Z|Y)$, instead of the full-space distribution $P(Z, \{\lambda, \Phi\} | Y)$. This allows for easy sampling steps and faster convergence rate. 
 The reduced-space posterior distribution is
 \begin{equation*}

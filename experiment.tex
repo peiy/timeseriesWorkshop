@@ -37,10 +37,15 @@ the mode where the players focus on conquering battles, while the \textbf{Defens
 state describes the stage that they build the resources. The \textbf{Moderate} is a mixture
 of the two. These states interestingly identified the design of the game explained previously,
 namely, the players have to conquer battles and build resources intermittently in order to improve. 
-\begin{wraptable}{r}{8.2cm}
+
+\begin{table}
+\parbox{.65\linewidth}{
+\centering
 \caption{Discovered Playing States}
 \label{tab:states}
 \centering
+\scalebox{0.8}
+{
 \begin{tabular}{lccc} 
 \bf Feature / State & \textbf{Aggressive}  & \textbf{Defensive}  &  \textbf{Moderate} 
 \\ \hline \\
@@ -51,7 +56,22 @@ namely, the players have to conquer battles and build resources intermittently i
  Prob.\ \texttt{LevelUp} &  0.1664  & 0.0177  & 0.0553 \\
  Prob.\ \texttt{Pay}     &  0.0031  & 0.0956  & 0.0320 \\
 \end{tabular}
-\end{wraptable}
+}
+}
+\hfill
+\parbox{.35\linewidth}{
+\centering
+\caption{Clustering results.}
+\label{tab:clustering}
+\begin{tabular}{ccc}
+\bf Method & \bf \#Cluster & \bf DB
+\\ \hline \\
+{\bf Our}     & {\bf 3}  &  {\bf 0.968} \\  
+Kmeans  &  5  &  2.628 \\
+GMM     &  4  &  1.803 
+\end{tabular}
+}
+\end{table}
 
 We then decode player's  states at each day.
 Figure \ref{fig:transitions} plots the transitions for all the users among the 10 days. 
@@ -75,7 +95,7 @@ conquer all the battlefields.
          \includegraphics[width=0.33\textwidth]{cluster1} &
          \includegraphics[width=0.33\textwidth]{cluster2} &
          \includegraphics[width=0.33\textwidth]{cluster3} \\
-         \multicolumn{3}{c}{ \includegraphics[width=0.8\textwidth]{legend} }
+         \multicolumn{3}{c}{ \includegraphics[width=0.75\textwidth]{legend} }
          \end{tabular}
      \caption{\label{fig:clusters} State transitions within three clusters found by our method.}
 \end{minipage}
@@ -111,17 +131,6 @@ conquer all the battlefields.
 %
 \subsection{Clustering Results}
 Next we clustering users based on their state transitions with the method explained in Sec.\ \ref{sec:clustering} . 
-\begin{wraptable}{r}{4.5cm}
-\caption{Clustering results.}
-\label{tab:clustering}
-\begin{tabular}{ccc}
-\bf Method & \bf \#Cluster & \bf DB
-\\ \hline \\
-{\bf Our}     & {\bf 3}  &  {\bf 0.968} \\  
-Kmeans  &  5  &  2.628 \\
-GMM     &  4  &  1.803 
-\end{tabular}
-\end{wraptable} 
 We compare with two baselines: Kmeans and Gaussian Mixture Model (GMM). 
 Due to the fact that we do not have actual cluster labels, we evaluate the results using a polular
 internal evaluation method Davis-Bouldin (DB) index \cite{dbindex}. 

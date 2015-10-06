@@ -3,9 +3,7 @@
 \BOOKMARK [1][-]{section.3}{Method}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Identify Gamers' Playing States Using HMM Model}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{Clustering Gamers based on State Transitions}{section.3}% 5
-\BOOKMARK [3][-]{subsubsection.3.2.1}{The Clustering Model}{subsection.3.2}% 6
-\BOOKMARK [3][-]{subsubsection.3.2.2}{MCMC Sampling of Posterior Distribution}{subsection.3.2}% 7
-\BOOKMARK [1][-]{section.4}{Experiments}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Identifying Players' Daily States}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Clustering Results}{section.4}% 10
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 11
+\BOOKMARK [1][-]{section.4}{Experiments}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Identifying Players' Daily States}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Clustering Results}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 9
