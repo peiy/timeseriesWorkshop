@@ -1,0 +1,15 @@
+The game industry is steadily gaining grounds in the competition for our digital time. Besides the traditional economic and business analysis reports, evidence of this fact, is the declared interest of companies like Amazon (purchased Twitch), Sonny (playsattion, Microsoft (XBOX), among others.  Games are also an incredibly rich source of data about human behavior ranging from social interactions to economical and rational decision making.
+
+From the points of view of  improving the players' experience  and also from the business aspects of retention, engagment  and payments,  it is very important for game companies to understand  player's behaviors and take appropriate actions accordingly. As players change their playing strategies and patterns during their involvement with the game (which can take years), and as these patterns are clearly not independent from previous playing behavior, the proper analysis of these patterns should be done by looking at the time series of the players actions.  These time series are multivariate in nature, as players can take over hundreds of actions in some of these games, and these actions are further parameterized by real values.
+
+In this paper we explore an approach to characterizing players behavior from the multivariate time series of their raw actions in the game based on 
+1) inducing a time series of latent states that abstract their raw actions and 2) clustering these time series of latent states.  To induce the time series of latent states we rely on  Hidden Markov Model (HMM) \cite{hmm}, with the playing states as 
+the hidden nodes and the players' action statistics at each time period as the observed features.  We fit the HMM model and induce the latent  states by applying the Viterbi decoding algorithm.  We then find the groupings of players using an unsupervised clustering method based on modeling this grouping as a Bayesian version of a Dirichlet Process~\cite{}.
+
+We test this approach on a mobile strategy game developed by Zynga Inc. %, named {\it Empires and Allies}. 
+Our method found three basic latent  states generating all the raw actions, and  the clustering results reveal three 
+interesting groups that contains players with similar patterns of transition states within each group.
+% this needs to be strengthen...
+As we will argue these results greatly simplify the task of  understanding players' behaviors to improve the game design and other business metrics as monetization and engagement. This characterization enables the game designers and managers to track and identify on a weekly basis the changes in behavior and how it correlates to changes in design, reaction to incentives, and A/B testing.  
+
+
