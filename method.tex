@@ -1,27 +1,24 @@
-Let $X_{it} = [X_{it1}, \cdots, X_{itD}]^\top$ be the measurements of player $i$ at the $t$-th time period, 
-where $D$ is the number of features. Suppose we have the measurements of player $i$ from $1$ to the 
-$T$-th time period\footnote{Note that for different users, the total time periods are not necessarily the same. 
-Here for simplicity we assume that all users are measured during the same amount of time},
-denoted as $X_{i} = [X_{i1}, \cdots, X_{iT}]^\top$. For a total number of $N$ players, we have their time series 
-data $X = \{ X_1, \cdots, X_N \}$.
+Let $X_{it} = [X_{it1}, \cdots, X_{itD}]^\top$ be the measurements of player $i$ at the $t$-th time epoch, 
+where $D$ is the number of features.  We assume that time is discrete and advances in epochs. 
+The measurements of player $i$ from $t = 1$ to  $t = T$, i.e. its time series of actions in the game,  is denoted as $X_{i} = [X_{i1}, \cdots, X_{iT}]^\top$. The time series of data for   $N$ players, is denoted by $X = \{ X_1, \cdots, X_N \}$.  We remark that for different users, the total time epochs may not be the same; for simplicity of exposition, in this paper we assume  
+that the time series for all users are of the same length.
 
-Our method includes two steps corresponding to the two tasks: 1) using HMM model to identify gamers' 
-playing states at each time period, and 2) discovering player groups based on their transitions over states by clustering. 
-Below we describe these two steps in detail.
+We are now ready to introduce the HMM induction and the clustering process in the next two subsections.
 
-\subsection{Identify Gamers' Playing States Using HMM Model}
-We assume that there is an underlying playing state that controls
-userâ€™s behaviors at each time period, and the state evolves  as the player changes his strategy over
-time. We represent each gamers' data using a Hidden Markov Model (HMM) \cite{hmm} chain with 
-length $T$, the total time periods.  Let $Y_{it}$ be the hidden state representing 
-the $i$-th gamer's underlying playing state at time $t$, and $Y_{it}$ is discrete which can take on $S$ values $\{1, \cdots, S\}$.
+\subsection{Uncovering Latent Players States Using HMMs}
+We assume that there is a latent playing state that controls
+user's€™ behavior at each time period, and that furthermore the state evolves  as the player changes his strategy over
+time. We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with 
+length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
+the $i$-th gamer's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1, \cdots, S\}$.
 
 %The gamer's HMM model has three parameters: 1) the initial state distribution vector $\pi$ 
 %with $\pi_s$ being the probability of a gamer starting with state $s$; 
 %2) the state transition parameter $A$, with $A_{rs}$ being the probability of a gamer transitioning from state
 %$r$ at time $t-1$ to state $s$ at time $t$. 3) the emission parameter $B$, with $B_s$ controlling the probability of observing $X_{it}$ at state $Y_{it} = s$. 
 
-The mechanism of the gamers' HMM model is as below: 1) initially, a gamer starts with state 
+%mpg;  These people will know what an HMM is.  So we can simplify this explanation if we need space.
+The mechanism of the players HMM model is as below: 1) initially, a player starts with state 
 $Y_{i1} \in \{1, \cdots, S\}$ according to an initial distribution $\pi$,  with $\pi_s$ being 
 the probability of starting at state $s$; 2) all the $Y_{it}$'s  evolves according to the 
 {\it Markov property}: given $Y_{i{t-1}}$, the state $Y_{it}$ is independent of all the 
@@ -38,26 +35,26 @@ likelihood of the observations
 = \prod_{i=1}^N P(Y_{i1} | \pi) P(X_{i1} | Y_{i1}, B)
   \prod_{t=2}^T P(Y_{it} | Y_{i{t-1}}, A) P(X_{it} | Y_{it}, B) ~.
 \]
-However, in the application of modeling gamers' playing states, the number of states $S$ is usually unknown. 
-We will estimate $S$ using criteria such as changes of data likelihood, AIC or BIC. 
+As usual the parameter $S$ is unknown. In this work we use the BIC criteria to fit it.
+%% mpg: we need to commit to one We will estimate $S$ using criteria such as changes of data likelihood, AIC or BIC. 
  
 After estimating the parameters, the state sequence $Y_{i1}, \cdots, Y_{iT}$ 
 for each user can be found using Viterbi decoding \cite{hmm} which maximizes
 $P(Y_{i1}, \cdots, Y_{iT}| X, \pi, A, B)$. 
 %One possible solution is to estimate $Y_{it}$ individually by maximizing $P(Y_{it}| X_{it}, \pi, A, B)$.
 
-\subsection{Clustering Gamers based on State Transitions}
+\subsection{Clustering Players Behavior Based on State Transitions}
 \label{sec:clustering}
-The next step is to clustering the gamers based on their trends of state transitions. 
-Here we adopt a similar method that has been successfully applied to crisis identification in distributed computing system \cite{moises}. 
+The next step is to clustering the players based on the time series of state transitions.  In our approach we adapt the method proposed in~\cite{moises}, as they also look at clustering time series of integer data (albeit in a completely different domain). 
+We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}.  Thus, We assume the clusters evolve according to a Dirichlet distribution with parameter $\alpha$.
+
 Let $Y = [Y_1, \cdots, Y_N]^\top$ be the state transitions for all the players,
 where $Y_i = [Y_{i1}, \cdots, Y_{iT}]^\top$ denotes the $i$-th player's states from 1 to
-the $T$-th time. We denote $Z_i$ as the underlying cluster assignment for the $i$-th player. 
-Let $K$ be the total number of (unknown) clusters, which we will found automatically.
+the $T$-th time. As it is common in this approach we us $Z_i$ as an auxiliary variable denoting the  cluster assignment for the $i$-th player.  We use  $K$ be the total number of (unknown) clusters.  Again, given our model, the number of clusters will be fitted automatically as part of the model, and will be continuously updated as we collect more data. 
 
-{\bf The Clustering Model:}
-We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}. 
-Suppose the clusters evolves according to a Dirichlet distribution with parameter $\alpha$.
+%{\bf The Clustering Model:}
+
+
 We assume that each cluster $k$ generates a Markov chain parametrized by $\{\lambda^k, \Phi^k\}$, 
 where $\lambda^k$ is the $S\time 1$ vector for the initial state distribution, 
 and $\Phi^k$ is the $S \times S$ transition matrix. We use the prior distribution 
@@ -83,8 +80,8 @@ Given the clustering model, the likelihood of the data of state transitions for 
 \end{equation}
 where $\mathbf{1} [\cdot]$ is the indicator function, and $n_{irs}$ is the number of transitions from state $r$ to state $s$ for the $i$-th player.
 
-{\bf MCMC Sampling of Posterior Distribution:}
-Here we use a collapsed-space sampling method \cite{neal2000markov,collapsed_escobar} to obtain samples from the reduced-spaced posterior distribution $P(Z|Y)$, instead of the full-space distribution $P(Z, \{\lambda, \Phi\} | Y)$. This allows for easy sampling steps and faster convergence rate. 
+%{\bf MCMC Sampling of Posterior Distribution:}
+We follow a Bayesian approach to inference, and even though some parts can be done in closed form, we still need to resort to sampling methods for computing the posterior.  Following~\cite{moises}  we use a collapsed-space sampling method \cite{neal2000markov,collapsed_escobar} to obtain samples from the reduced-spaced posterior distribution $P(Z|Y)$, instead of the full-space distribution $P(Z, \{\lambda, \Phi\} | Y)$. This allows for easy sampling steps and faster convergence rate. 
 The reduced-space posterior distribution is
 \begin{equation*}
  P(Z|Y) \propto P(Z, Y) = P(Y|Z) P(Z).
@@ -142,8 +139,8 @@ set $Z_1 = 1$; for subsequent players, sample $Z_i$ according to  the following 
 \end{array}
 \end{equation*}
 where $|\cdot|$ denotes the number of elements in a set.
-
-Note that our clustering method can be easily extended to incorporate side information 
-such as pairwise constraints \cite{constraintBook}, by only considering the samples $Z$ that
-satisfies the constraints.
+ %%mpg: lets move this to the conclusion/discussion section
+%Note that our clustering method can be easily extended to incorporate side information 
+%such as pairwise constraints \cite{constraintBook}, by only considering the samples $Z$ that
+%satisfies the constraints.
 
