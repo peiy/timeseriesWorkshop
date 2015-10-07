@@ -2,10 +2,11 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: draft.bib
+Warning--I didn't find a database entry for "bic"
 Warning--there's a number but no volume in dbindex
 You've used 10 entries,
             2118 wiz_defined-function locations,
-            570 strings with 5715 characters,
+            571 strings with 5718 characters,
 and the built_in function-call counts, 3573 in all, are:
 = -- 370
 > -- 138
@@ -44,4 +45,4 @@ warning$ -- 1
 while$ -- 40
 width$ -- 12
 write$ -- 114
-(There was 1 warning)
+(There were 2 warnings)

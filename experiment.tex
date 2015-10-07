@@ -1,16 +1,13 @@
-We apply our method to Zynga Inc's strategy game called ``Empires and Allies''.
-In the game, the goal is to conquer all the battlefields
-in a global map,  either with machine or with other players. To conquer 
-the battles, the players need to build/upgrade base resources such as weapons and troops, which in turn 
-requires game points that can be obtained from winning battles.  Thus, the players need to 
+We apply our method one of  Zynga's strategy game where the goal is to conquer all the battlefields
+in a global map (players can play against other players or against the game itself). The players need to build/upgrade base resources with  weapons and troops, which in turn 
+requires game points that can be obtained from winning battles.  Thus,  players need to 
 tradeoff between building resources and conquering battlefields.
 
 %We apply our method to one of Zynga Inc's mobile strategy game -- Empires and Allies, an all-new modern military strategy game that players can design their army, build their base and deploy their weapons and troops to conquer the battlefields. Thanks to the powerful backend system, the game tracks almost every action each player does in the game, which provide us a handful data set to investigate the sophisticated player types. We choose a data set which contains a daily active cohort's 10 consecutive days data from the first day they install the game. For each player and each day, we have 67 features including engagement features like session length, number of battles, game action features like deploy a tank, build a defence building and join an alliance. Then we use the feature selection algorithm to choose 5 out of 67 features to build the time series clustering model. They are PvP (People vs People) Battle , PvE (People vs Bot) Battle, Points gained/lost per battle, session length, Level up and is-Payer.  
 
-We form a dataset that contains player's 10 consecutive days data after installation, 
-and subsample users that are active at all the 10 days. This results in 1719 players.
-Each player is measured with $67$ metrics at each day, and we select $5$ important 
-features based on prior experience: \texttt{PvP} (people vs people battle), 
+We subsample players from  a dataset of 10 consecutive days data after installation. This results in 1719 players.
+Each player is characterized with $67$ features at each day, and we select $5$ important 
+features based on prior experience and feature selection methods: \texttt{PvP} (people vs people battle), 
 \texttt{Pve} (people vs machine battle), \texttt{Points} (number of points gained), \texttt{Session} 
 (number of session started), \texttt{LevelUp} (whether a player level up) and \texttt{isPayer} (whether
 the player paid). We model \texttt{Points}  with Gaussian distribution, \texttt{Session} with
@@ -27,11 +24,8 @@ Poisson distribution, and the rest features with Bernoulli distribution.
 
 
 
-\subsection{Identifying Players' Daily States}
-We fit HMM model with different number of playing states and found that 3 states is reasonable. 
-%Figure \ref{fig:likeli} plots the data likelihood using different number of playing states. 
-%From the results, we see that using 3 hidden states is reasonable for explaining our data. 
-Table \ref{tab:states} lists the discovered playing states, \textbf{Aggressive}, 
+{\bf Identifying Players' Latent States.} Our experiments yielded 3 states that where interpretable given the distributional characteristics of the features (see 
+Table \ref{tab:states}): \textbf{Aggressive}, 
 \textbf{Defensive}, and \textbf{Moderate}.  The \textbf{Aggressive} state captures 
 the mode where the players focus on conquering battles, while the \textbf{Defensive} 
 state describes the stage that they build the resources. The \textbf{Moderate} is a mixture
@@ -73,13 +67,10 @@ GMM     &  4  &  1.803
 }
 \end{table}
 
-We then decode player's  states at each day.
-Figure \ref{fig:transitions} plots the transitions for all the users among the 10 days. 
+Figure \ref{fig:transitions} plots the transitions for all the players among the 10 days (decoded using Viterbi). 
 The result shows that most of the users starts with the \textbf{Moderate} or \textbf{Defensive} state, 
 and then gradually transition to the \textbf{Aggressive} state. 
-This is also consistent with the game design since the players can not start with many battles at
-the beginning due to the resources restriction, but they ultimately need to 
-conquer all the battlefields.
+This is  consistent with the initial game design as  it is difficult for players  to start with many battles due to  resource restrictions, but they ultimately need to become aggressive and conquer all the battlefields.
 
 \begin{figure}[h]
 \begin{minipage}[b]{0.3\linewidth}
@@ -129,14 +120,11 @@ conquer all the battlefields.
 %              }
 %\end{figure}
 %
-\subsection{Clustering Results}
-Next we clustering users based on their state transitions with the method explained in Sec.\ \ref{sec:clustering} . 
-We compare with two baselines: Kmeans and Gaussian Mixture Model (GMM). 
-Due to the fact that we do not have actual cluster labels, we evaluate the results using a polular
-internal evaluation method Davis-Bouldin (DB) index \cite{dbindex}. 
+{\bf Clustering Results.} We compare the results of our clustering methods with two alternatives: Kmeans and Gaussian Mixture Model (GMM),
+and compare the results using a popular evaluation method based on Davis-Bouldin (DB) index \cite{dbindex} (we remind the reader that we don't have ground truth). 
 We tune the number of clusters for Kmeans using DB index, and report the one that has the best (the smallest) DB index value. 
 Table \ref{tab:clustering} report the clustering results of all methods, 
-where our method outperforms the baselines. We also plot the state transitions within each clusters  
+where our method outperforms the alternatives. We also plot the state transitions within each clusters  
 and found that our method produces the most meaningful results. Here we show the within cluster transitions found by our
 method at Figure \ref{fig:clusters}.  
 

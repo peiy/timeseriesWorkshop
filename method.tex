@@ -3,14 +3,9 @@ where $D$ is the number of features.  We assume that time is discrete and advanc
 The measurements of player $i$ from $t = 1$ to  $t = T$, i.e. its time series of actions in the game,  is denoted as $X_{i} = [X_{i1}, \cdots, X_{iT}]^\top$. The time series of data for   $N$ players, is denoted by $X = \{ X_1, \cdots, X_N \}$.  We remark that for different users, the total time epochs may not be the same; for simplicity of exposition, in this paper we assume  
 that the time series for all users are of the same length.
 
-We are now ready to introduce the HMM induction and the clustering process in the next two subsections.
-
-\subsection{Uncovering Latent Players States Using HMMs}
-We assume that there is a latent playing state that controls
-user's€™ behavior at each time period, and that furthermore the state evolves  as the player changes his strategy over
-time. We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with 
-length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
-the $i$-th gamer's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1, \cdots, S\}$.
+{\bf Modeling Latent Players States with HMMs.}
+We assume that there is a latent playing state that controls user's€™ behavior at each time period, and that furthermore the state evolves  as the player changes his strategy overtime.  We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
+the $i$-th gamer's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1, \cdots, S\}$. 
 
 %The gamer's HMM model has three parameters: 1) the initial state distribution vector $\pi$ 
 %with $\pi_s$ being the probability of a gamer starting with state $s$; 
@@ -18,7 +13,7 @@ the $i$-th gamer's  latent state at time $t$, and $Y_{it}$ will be regarded as d
 %$r$ at time $t-1$ to state $s$ at time $t$. 3) the emission parameter $B$, with $B_s$ controlling the probability of observing $X_{it}$ at state $Y_{it} = s$. 
 
 %mpg;  These people will know what an HMM is.  So we can simplify this explanation if we need space.
-The mechanism of the players HMM model is as below: 1) initially, a player starts with state 
+The mechanism of the players HMM model is as follows: 1) initially, a player starts with state 
 $Y_{i1} \in \{1, \cdots, S\}$ according to an initial distribution $\pi$,  with $\pi_s$ being 
 the probability of starting at state $s$; 2) all the $Y_{it}$'s  evolves according to the 
 {\it Markov property}: given $Y_{i{t-1}}$, the state $Y_{it}$ is independent of all the 
@@ -26,27 +21,19 @@ states prior to $t-1$, and the transition matrix is $A$, with $A_{rs}$ being the
 transitioning from state $r$ to state $t$; 3) at each time $t$, the observations $X_{it}$ only 
 depends on the state $Y_{it}$ parametrized by $B$, with $B_s$ controlling the probability 
 of observing $X_{it}$ at state $Y_{it} = s$. 
+Given the observed data $X$ and the number of states $S$, we  estimate the parameters, i.e., the transition matrix $A$, the emission matrix $B$, and the initial distribution $\pi$ by maximizing the 
+likelihood of the observations. As usual, the free parameter $S$ is fitted via a scoring function,  In this work we rely on  BIC \cite{bic}.
 
-
-Given the observed data $X$ and the number of states $S$, we can estimate the parameters by maximizing the 
-likelihood of the observations
-\[
-  \max_{\pi, A, B} P(X | \pi, A, B)
-= \prod_{i=1}^N P(Y_{i1} | \pi) P(X_{i1} | Y_{i1}, B)
-  \prod_{t=2}^T P(Y_{it} | Y_{i{t-1}}, A) P(X_{it} | Y_{it}, B) ~.
-\]
-As usual the parameter $S$ is unknown. In this work we use the BIC criteria to fit it.
+%\[ \max_{\pi, A, B} P(X | \pi, A, B) = \prod_{i=1}^N P(Y_{i1} | \pi) P(X_{i1} | Y_{i1}, B) \prod_{t=2}^T P(Y_{it} | Y_{i{t-1}}, A) P(X_{it} | Y_{it}, B) ~.\]
+%As usual the parameter $S$ is unknown. In this work we use the BIC criteria to fit it.
 %% mpg: we need to commit to one We will estimate $S$ using criteria such as changes of data likelihood, AIC or BIC. 
  
-After estimating the parameters, the state sequence $Y_{i1}, \cdots, Y_{iT}$ 
-for each user can be found using Viterbi decoding \cite{hmm} which maximizes
-$P(Y_{i1}, \cdots, Y_{iT}| X, \pi, A, B)$. 
+After estimating the parameters, we find the state sequence $Y_{i1}, \cdots, Y_{iT}$  
+for each user by maximizing $P(Y_{i1}, \cdots, Y_{iT}| X, \pi, A, B)$ using the  Viterbi  algorithm \cite{hmm}. 
 %One possible solution is to estimate $Y_{it}$ individually by maximizing $P(Y_{it}| X_{it}, \pi, A, B)$.
 
-\subsection{Clustering Players Behavior Based on State Transitions}
-\label{sec:clustering}
-The next step is to clustering the players based on the time series of state transitions.  In our approach we adapt the method proposed in~\cite{moises}, as they also look at clustering time series of integer data (albeit in a completely different domain). 
-We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}.  Thus, We assume the clusters evolve according to a Dirichlet distribution with parameter $\alpha$.
+{\bf Clustering Players Behavior.}
+ Our  approach to clustering consists in  adapting the method proposed in~\cite{moises}, as they also looked at clustering time series of integer data (albeit in a completely different domain). We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}.  Thus, We assume the clusters evolve according to a Dirichlet distribution with parameter $\alpha$.
 
 Let $Y = [Y_1, \cdots, Y_N]^\top$ be the state transitions for all the players,
 where $Y_i = [Y_{i1}, \cdots, Y_{iT}]^\top$ denotes the $i$-th player's states from 1 to
