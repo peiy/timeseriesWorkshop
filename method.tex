@@ -4,7 +4,7 @@ The measurements of player $i$ from $t = 1$ to  $t = T$, i.e. its time series of
 that the time series for all users are of the same length.
 
 {\bf Modeling Latent Players States with HMMs.}
-We assume that there is a latent playing state that controls user's€™ behavior at each time period, and that furthermore the state evolves  as the player changes his strategy overtime.  We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
+We assume that there is a latent playing state that controls user'sÂ€Â™ behavior at each time period, and that furthermore the state evolves  as the player changes his strategy overtime.  We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
 the $i$-th gamer's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1, \cdots, S\}$. 
 
 %The gamer's HMM model has three parameters: 1) the initial state distribution vector $\pi$ 
@@ -18,7 +18,7 @@ $Y_{i1} \in \{1, \cdots, S\}$ according to an initial distribution $\pi$,  with 
 the probability of starting at state $s$; 2) all the $Y_{it}$'s  evolves according to the 
 {\it Markov property}: given $Y_{i{t-1}}$, the state $Y_{it}$ is independent of all the 
 states prior to $t-1$, and the transition matrix is $A$, with $A_{rs}$ being the probability of 
-transitioning from state $r$ to state $t$; 3) at each time $t$, the observations $X_{it}$ only 
+transitioning from state $r$ to state $s$; 3) at each time $t$, the observations $X_{it}$ only 
 depends on the state $Y_{it}$ parametrized by $B$, with $B_s$ controlling the probability 
 of observing $X_{it}$ at state $Y_{it} = s$. 
 Given the observed data $X$ and the number of states $S$, we  estimate the parameters, i.e., the transition matrix $A$, the emission matrix $B$, and the initial distribution $\pi$ by maximizing the 
@@ -45,7 +45,7 @@ the $T$-th time. As it is common in this approach we us $Z_i$ as an auxiliary va
 We assume that each cluster $k$ generates a Markov chain parametrized by $\{\lambda^k, \Phi^k\}$, 
 where $\lambda^k$ is the $S\time 1$ vector for the initial state distribution, 
 and $\Phi^k$ is the $S \times S$ transition matrix. We use the prior distribution 
-for parameters in each cluster is $G_0(\{\lambda^k, \Phi^k\}) = Dir(\hat\pi) \prod_{s=1}^S Dir (\hat B_{s.})$,
+for parameters in each cluster $G_0(\{\lambda^k, \Phi^k\}) = Dir(\hat\pi) \prod_{s=1}^S Dir (\hat B_{s.})$,
 where $\hat\pi$ and $\hat B$ are the estimated parameters at the first step. 
 The conditional probability  
 \begin{equation}
