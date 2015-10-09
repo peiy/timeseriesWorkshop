@@ -63,7 +63,7 @@ Given the clustering model, the likelihood of the data of state transitions for 
 \begin{equation}
 \label{eq:likeli}
   P(Y| Z, \{\lambda^k, \Phi^k \}_{k=1}^K) 
-= \prod_{i=1}^N \left( \prod_{s=1}^S \lambda^{\mathbf{1}[Y_{i1} = s]} \prod_{r=1}^S \left(\Phi_{rs}^{Z_i}\right)^{n_{irs}} \right)~,
+= \prod_{i=1}^N \left( \prod_{s=1}^S (\lambda^{Z_i})^{\mathbf{1}[Y_{i1} = s]} \prod_{r=1}^S \left(\Phi_{rs}^{Z_i}\right)^{n_{irs}} \right)~,
 \end{equation}
 where $\mathbf{1} [\cdot]$ is the indicator function, and $n_{irs}$ is the number of transitions from state $r$ to state $s$ for the $i$-th player.
 
