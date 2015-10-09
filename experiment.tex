@@ -1,4 +1,4 @@
-We apply our method one of  Zynga's strategy game where the goal is to conquer all the battlefields
+We apply our method to one of  Zynga's strategy game where the goal is to conquer all the battlefields
 in a global map (players can play against other players or against the game itself). The players need to build/upgrade base resources with  weapons and troops, which in turn 
 requires game points that can be obtained from winning battles.  Thus,  players need to 
 tradeoff between building resources and conquering battlefields.
@@ -24,13 +24,13 @@ Poisson distribution, and the rest features with Bernoulli distribution.
 
 
 
-{\bf Identifying Players' Latent States.} Our experiments yielded 3 states that where interpretable given the distributional characteristics of the features (see 
+{\bf Identifying Players' Latent States.} Our experiments yielded 3 states that were interpretable given the distributional characteristics of the features (see 
 Table \ref{tab:states}): \textbf{Aggressive}, 
 \textbf{Defensive}, and \textbf{Moderate}.  The \textbf{Aggressive} state captures 
 the mode where the players focus on conquering battles, while the \textbf{Defensive} 
-state describes the stage that they build the resources. The \textbf{Moderate} is a mixture
+state describes the stage that they acquire the resources and build their base. The \textbf{Moderate} is a mixture
 of the two. These states interestingly identified the design of the game explained previously,
-namely, the players have to conquer battles and build resources intermittently in order to improve. 
+namely, the players have to conquer battles and build resources intermittently in order to progress. 
 
 \begin{table}
 \parbox{.65\linewidth}{
@@ -60,7 +60,7 @@ namely, the players have to conquer battles and build resources intermittently i
 \begin{tabular}{ccc}
 \bf Method & \bf \#Cluster & \bf DB
 \\ \hline \\
-{\bf Our}     & {\bf 3}  &  {\bf 0.968} \\  
+{\bf Ours}     & {\bf 3}  &  {\bf 0.968} \\  
 Kmeans  &  5  &  2.628 \\
 GMM     &  4  &  1.803 
 \end{tabular}
@@ -120,12 +120,11 @@ This is  consistent with the initial game design as  it is difficult for players
 %              }
 %\end{figure}
 %
-{\bf Clustering Results.} We compare the results of our clustering methods with two alternatives: Kmeans and Gaussian Mixture Model (GMM),
-and compare the results using a popular evaluation method based on Davis-Bouldin (DB) index \cite{dbindex} (we remind the reader that we don't have ground truth). 
+{\bf Clustering Results.} We compare the results of our clustering methods with two alternatives: Kmeans and Gaussian Mixture Model (GMM) by using a popular evaluation method based on Davis-Bouldin (DB) index \cite{dbindex} (we remind the readers that we don't have the ground truth). 
 We tune the number of clusters for Kmeans using DB index, and report the one that has the best (the smallest) DB index value. 
-Table \ref{tab:clustering} report the clustering results of all methods, 
+Table \ref{tab:clustering} reports the clustering results of all methods, 
 where our method outperforms the alternatives. We also plot the state transitions within each clusters  
 and found that our method produces the most meaningful results. Here we show the within cluster transitions found by our
-method at Figure \ref{fig:clusters}.  
+method in Figure \ref{fig:clusters}.  
 
 
