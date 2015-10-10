@@ -1,17 +1,17 @@
-We apply our method to one of  Zynga's strategy game where the goal is to conquer all the battlefields
+We apply our method to one of  Zynga's strategy games where the goal is to conquer all the battlefields
 in a global map (players can play against other players or against the game itself). The players need to build/upgrade base resources with  weapons and troops, which in turn 
 requires game points that can be obtained from winning battles.  Thus,  players need to 
 tradeoff between building resources and conquering battlefields.
 
 %We apply our method to one of Zynga Inc's mobile strategy game -- Empires and Allies, an all-new modern military strategy game that players can design their army, build their base and deploy their weapons and troops to conquer the battlefields. Thanks to the powerful backend system, the game tracks almost every action each player does in the game, which provide us a handful data set to investigate the sophisticated player types. We choose a data set which contains a daily active cohort's 10 consecutive days data from the first day they install the game. For each player and each day, we have 67 features including engagement features like session length, number of battles, game action features like deploy a tank, build a defence building and join an alliance. Then we use the feature selection algorithm to choose 5 out of 67 features to build the time series clustering model. They are PvP (People vs People) Battle , PvE (People vs Bot) Battle, Points gained/lost per battle, session length, Level up and is-Payer.  
 
-We subsample players from  a dataset of 10 consecutive days data after installation. This results in 1719 players.
+We subsample players from  a dataset of 10 consecutive days data after installation. Our final dataset contains 1719 players.
 Each player is characterized with $67$ features at each day, and we select $5$ important 
 features based on prior experience and feature selection methods: \texttt{PvP} (people vs people battle), 
 \texttt{Pve} (people vs machine battle), \texttt{Points} (number of points gained), \texttt{Session} 
 (number of session started), \texttt{LevelUp} (whether a player level up) and \texttt{isPayer} (whether
-the player paid). We model \texttt{Points}  with Gaussian distribution, \texttt{Session} with
-Poisson distribution, and the rest features with Bernoulli distribution.
+the player paid). We model \texttt{Points}  as a Gaussian distribution, \texttt{Session} as a
+Poisson distribution, and the remaining features as a Bernoulli distribution.
 
 
 %\begin{wrapfigure}{r}{0.4\textwidth}
@@ -124,7 +124,7 @@ This is  consistent with the initial game design as  it is difficult for players
 We tune the number of clusters for Kmeans using DB index, and report the one that has the best (the smallest) DB index value. 
 Table \ref{tab:clustering} reports the clustering results of all methods, 
 where our method outperforms the alternatives. We also plot the state transitions within each clusters  
-and found that our method produces the most meaningful results. Here we show the within cluster transitions found by our
+and found that our method produces the most meaningful results. Here, we show the within cluster transitions found by our
 method in Figure \ref{fig:clusters}.  
 
 
