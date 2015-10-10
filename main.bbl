@@ -8,12 +8,12 @@ Manuele Bicego, Marco Cristani, and Vittorio Murino.
 \bibitem{bicego2003}
 Manuele Bicego, Vittorio Murino, and M{\'a}rio~AT Figueiredo.
 \newblock Similarity-based clustering of sequences using hidden markov models.
-\newblock In {\em Machine learning and data mining in pattern recognition},
+\newblock In {\em Machine Learning and Data Mining in Pattern Recognition},
   pages 86--95. Springer, 2003.
 
 \bibitem{coviello2014}
 Emanuele Coviello, Antoni~B Chan, and Gert~RG Lanckriet.
-\newblock Clustering hidden markov models with variational hem.
+\newblock Clustering hidden markov models with variational {HEM}.
 \newblock {\em The Journal of Machine Learning Research}, 15(1):697--747, 2014.
 
 \bibitem{dbindex}
@@ -31,7 +31,7 @@ Michael~D Escobar.
 \bibitem{dpclustering}
 Michael~D Escobar and Mike West.
 \newblock Bayesian density estimation and inference using mixtures.
-\newblock {\em Journal of the american statistical association},
+\newblock {\em Journal of the American Statistical Association},
   90(430):577--588, 1995.
 
 \bibitem{menendez2014}
@@ -44,13 +44,18 @@ H{\'e}ctor~D Men{\'e}ndez, Rafael Vindel, and David Camacho.
 \bibitem{neal2000markov}
 Radford~M Neal.
 \newblock Markov chain sampling methods for dirichlet process mixture models.
-\newblock {\em Journal of computational and graphical statistics},
+\newblock {\em Journal of Computational and Graphical Statistics},
   9(2):249--265, 2000.
 
 \bibitem{hmm}
 Lawrence~R. Rabiner and Biing-Hwang Juang.
 \newblock An introduction to hidden markov models.
 \newblock {\em ASSP Magazine, IEEE}, 3(1):4--16, 1986.
+
+\bibitem{bic}
+Gideon Schwarz et~al.
+\newblock Estimating the dimension of a model.
+\newblock {\em The Annals of Statistics}, 6(2):461--464, 1978.
 
 \bibitem{moises}
 Dawn~B. Woodard and Moises Goldszmidt.

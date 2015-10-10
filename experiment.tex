@@ -7,11 +7,11 @@ tradeoff between building resources and conquering battlefields.
 
 We subsample players from  a dataset of 10 consecutive days data after installation. Our final dataset contains 1719 players.
 Each player is characterized with $67$ features at each day, and we select $5$ important 
-features based on prior experience and feature selection methods: \texttt{PvP} (people vs people battle), 
+features based on prior experience and feature selection methods: \texttt{Pvp} (people vs people battle), 
 \texttt{Pve} (people vs machine battle), \texttt{Points} (number of points gained), \texttt{Session} 
-(number of session started), \texttt{LevelUp} (whether a player level up) and \texttt{isPayer} (whether
-the player paid). We model \texttt{Points}  as a Gaussian distribution, \texttt{Session} as a
-Poisson distribution, and the remaining features as a Bernoulli distribution.
+(number of sessions started), \texttt{LevelUp} (whether a player levels up) and \texttt{isPayer} (whether
+the player paid). We model \texttt{Points} with a Gaussian distribution, \texttt{Session} with a
+Poisson distribution, and the remaining features with a Bernoulli distribution.
 
 
 %\begin{wrapfigure}{r}{0.4\textwidth}
@@ -25,10 +25,10 @@ Poisson distribution, and the remaining features as a Bernoulli distribution.
 
 
 {\bf Identifying Players' Latent States.} Our experiments yielded 3 states that were interpretable given the distributional characteristics of the features (see 
-Table \ref{tab:states}): \textbf{Aggressive}, 
-\textbf{Defensive}, and \textbf{Moderate}.  The \textbf{Aggressive} state captures 
-the mode where the players focus on conquering battles, while the \textbf{Defensive} 
-state describes the stage that they acquire the resources and build their base. The \textbf{Moderate} is a mixture
+Table \ref{tab:states}): \textbf{\textit{Aggressive}}, 
+\textbf{\textit{Defensive}}, and \textbf{\textit{Moderate}}.  The \textbf{\textit{Aggressive}} state captures 
+the mode where the players focus on conquering battles, while the \textbf{\textit{Defensive}} 
+state describes the stage that they acquire the resources and build their base. The \textbf{\textit{Moderate}} is a mixture
 of the two. These states interestingly identified the design of the game explained previously,
 namely, the players have to conquer battles and build resources intermittently in order to progress. 
 
@@ -41,7 +41,7 @@ namely, the players have to conquer battles and build resources intermittently i
 \scalebox{0.8}
 {
 \begin{tabular}{lccc} 
-\bf Feature / State & \textbf{Aggressive}  & \textbf{Defensive}  &  \textbf{Moderate} 
+\bf Feature / State & \textbf{\textit{Aggressive}}  & \textbf{\textit{Defensive}}  &  \textbf{\textit{Moderate}}
 \\ \hline \\
  Prob.\ \texttt{Pvp}     &  0.2472  & 0.0295 &  0.0947  \\
  Prob.\ \texttt{Pve}     &  0.2430  & 0.0581 &  0.1044 \\
@@ -68,24 +68,24 @@ GMM     &  4  &  1.803
 \end{table}
 
 Figure \ref{fig:transitions} plots the transitions for all the players among the 10 days (decoded using Viterbi). 
-The result shows that most of the users starts with the \textbf{Moderate} or \textbf{Defensive} state, 
-and then gradually transition to the \textbf{Aggressive} state. 
+The result shows that most of the users starts with the \textbf{\textit{Moderate}} or \textbf{\textit{Defensive}} state, 
+and then gradually transition to the \textbf{\textit{Aggressive}} state. 
 This is  consistent with the initial game design as  it is difficult for players  to start with many battles due to  resource restrictions, but they ultimately need to become aggressive and conquer all the battlefields.
 
 \begin{figure}[h]
-\begin{minipage}[b]{0.3\linewidth}
+\begin{minipage}[b]{0.28\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{transitions} 
-    \caption{State transitions of all the Players at the first 10 days of installing the game.}
+    \includegraphics[width=0.85\linewidth]{transitions} 
+    \caption{State transitions of all the players at the first 10 days after installation.}
     \label{fig:transitions}
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.65\linewidth}
     \centering
         \begin{tabular}{ccc}
-         \includegraphics[width=0.33\textwidth]{cluster1} &
-         \includegraphics[width=0.33\textwidth]{cluster2} &
-         \includegraphics[width=0.33\textwidth]{cluster3} \\
+         \includegraphics[width=0.32\textwidth]{cluster1} &
+         \includegraphics[width=0.32\textwidth]{cluster2} &
+         \includegraphics[width=0.32\textwidth]{cluster3} \\
          \multicolumn{3}{c}{ \includegraphics[width=0.75\textwidth]{legend} }
          \end{tabular}
      \caption{\label{fig:clusters} State transitions within three clusters found by our method.}
@@ -120,7 +120,7 @@ This is  consistent with the initial game design as  it is difficult for players
 %              }
 %\end{figure}
 %
-{\bf Clustering Results.} We compare the results of our clustering methods with two alternatives: Kmeans and Gaussian Mixture Model (GMM) by using a popular evaluation method based on Davis-Bouldin (DB) index \cite{dbindex} (we remind the readers that we don't have the ground truth). 
+{\bf Clustering Results.} We compare the results of our clustering method with two alternatives: Kmeans and Gaussian Mixture Model (GMM), using a popular internal clustering evaluation metric {\it Davis-Bouldin (DB) index} \cite{dbindex} (we remind the readers that we don't have the ground truth). 
 We tune the number of clusters for Kmeans using DB index, and report the one that has the best (the smallest) DB index value. 
 Table \ref{tab:clustering} reports the clustering results of all methods, 
 where our method outperforms the alternatives. We also plot the state transitions within each clusters  

@@ -1,11 +1,11 @@
-Let $X_{it} = [X_{it1}, \cdots, X_{itD}]^\top$ be the measurements of player $i$ at the $t$-th time epoch, 
+Let $X_{it} = [X_{it1}, \ldots, X_{itD}]^\top$ be the measurements of player $i$ at the $t$-th time epoch, 
 where $D$ is the number of features.  We assume that time is discrete and advances in epochs. 
-The measurements of player $i$ from $t = 1$ to  $t = T$, i.e. her time series of actions in the game,  is denoted as $X_{i} = [X_{i1}, \cdots, X_{iT}]^\top$. The time series of data for   $N$ players is denoted by $X = \{ X_1, \cdots, X_N \}$.  We remark that, for different users, the total time epochs may not be the same; for simplicity of exposition, in this paper we assume  
+The measurements of player $i$ from $t = 1$ to  $t = T$, i.e. her time series of actions in the game,  is denoted as $X_{i} = [X_{i1}, \ldots, X_{iT}]^\top$. The time series of data for   $N$ players is denoted by $X = \{ X_1, \ldots, X_N \}$.  We remark that, for different users, the total time epochs may not be the same; for simplicity of exposition, in this paper we assume  
 that the time series for all users are of the same length.
 
 {\bf Modeling Latent Players States with HMMs.}
 We assume that there is a latent playing state that controls user behavior at each time period, and additionally that the state evolves  as the player changes her strategy overtime.  We represent each players' data using a Hidden Markov Model (HMM) \cite{hmm} chain with length $T$, the total time epochs.  Let $Y_{it}$ be the hidden state representing 
-the $i$-th player's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1, \cdots, S\}$. 
+the $i$-th player's  latent state at time $t$, and $Y_{it}$ will be regarded as discrete taking on $S$ values $\{1,\ldots,S\}$. 
 
 %The gamer's HMM model has three parameters: 1) the initial state distribution vector $\pi$ 
 %with $\pi_s$ being the probability of a gamer starting with state $s$; 
@@ -14,7 +14,7 @@ the $i$-th player's  latent state at time $t$, and $Y_{it}$ will be regarded as 
 
 %mpg;  These people will know what an HMM is.  So we can simplify this explanation if we need space.
 The mechanism of the player HMM model is as follows: 1) initially, a player starts with state 
-$Y_{i1} \in \{1, \cdots, S\}$ according to an initial distribution $\pi$,  with $\pi_s$ being 
+$Y_{i1} \in \{1, \ldots, S\}$ according to an initial distribution $\pi$,  with $\pi_s$ being 
 the probability of starting at state $s$; 2) all the $Y_{it}$'s  evolve according to the 
 {\it Markov property}: given $Y_{i{t-1}}$, the state $Y_{it}$ is independent of all the 
 states prior to $t-1$, and the transition matrix is $A$, with $A_{rs}$ being the probability of 
@@ -28,24 +28,24 @@ likelihood of the observations. As usual, the free parameter $S$ is fitted via a
 %As usual the parameter $S$ is unknown. In this work we use the BIC criteria to fit it.
 %% mpg: we need to commit to one We will estimate $S$ using criteria such as changes of data likelihood, AIC or BIC. 
  
-After estimating the parameters, we find the state sequence $Y_{i1}, \cdots, Y_{iT}$  
-for each user by maximizing $P(Y_{i1}, \cdots, Y_{iT}| X, \pi, A, B)$ using the  Viterbi  algorithm \cite{hmm}. 
+After estimating the parameters, we find the state sequence $Y_{i1}, \ldots, Y_{iT}$  
+for each user by maximizing $P(Y_{i1}, \ldots, Y_{iT}| X, \pi, A, B)$ using the  Viterbi  algorithm \cite{hmm}. 
 %One possible solution is to estimate $Y_{it}$ individually by maximizing $P(Y_{it}| X_{it}, \pi, A, B)$.
 
-{\bf Clustering Player Behavior.}
+{\bf Clustering Player Behaviors.}
  Our  approach to clustering consists of  adapting the method proposed in~\cite{moises}, as they also looked at clustering time series of integer data (albeit in a completely different domain). We adopt the mixture of Dirichlet process model (DP) for clustering \cite{dpclustering}.  Thus, we assume that the clusters evolve according to a Dirichlet distribution with parameter $\alpha$.
 
-Let $Y = [Y_1, \cdots, Y_N]^\top$ be the state transitions for all the players,
-where $Y_i = [Y_{i1}, \cdots, Y_{iT}]^\top$ denotes the $i$-th player's states from 1 to
-the $T$-th time. As it is common in this approach we use $Z_i$ as an auxiliary variable denoting the  cluster assignment for the $i$-th player.  We use  $K$ to represent the total number of (unknown) clusters.  Again, given our model, the number of clusters will be fitted automatically as part of the model, and will be continuously updated as we collect more data. 
+Let $Y = [Y_1, \ldots, Y_N]^\top$ be the state transitions for all the players,
+where $Y_i = [Y_{i1}, \ldots, Y_{iT}]^\top$ denotes the $i$-th player's states from 1 to
+the $T$-th time. As it is common in this approach, we use $Z_i$ as an auxiliary variable denoting the  cluster assignment for the $i$-th player.  We use  $K$ to represent the total number of (unknown) clusters.  Again, given our model, the number of clusters will be fitted automatically as part of the model, and will be continuously updated as we collect more data. 
 
 %{\bf The Clustering Model:}
 
 
 We assume that each cluster $k$ generates a Markov chain parametrized by $\{\lambda^k, \Phi^k\}$, 
-where $\lambda^k$ is the $S\time 1$ vector for the initial state distribution, 
-and $\Phi^k$ is the $S \times S$ transition matrix. We use the prior distribution 
-for parameters in each cluster $G_0(\{\lambda^k, \Phi^k\}) = Dir(\hat\pi) \prod_{s=1}^S Dir (\hat B_{s.})$,
+where $\lambda^k$ is the $S\times 1$ vector of the initial state distribution, 
+and $\Phi^k$ is the $S \times S$ dimensional transition matrix. For parameters in each cluster, 
+we use the prior $G_0(\{\lambda^k, \Phi^k\}) = Dir(\hat\pi) \prod_{s=1}^S Dir (\hat B_{s.})$,
 where $\hat\pi$ and $\hat B$ are the estimated parameters at the first step. 
 Then, we can determine the conditional probability:  
 \begin{equation}
@@ -57,15 +57,15 @@ Then, we can determine the conditional probability:
 %\begin{tabular}{l}
 %    \quad For each player $i$,\\
 %    \qquad 1. Sample cluster assignment $Z_i \sim Dir(\alpha)$  \\
-%    \qquad 2. Generate the state sequence $Y_{i1}, \cdots Y_{iT}$ with Markov chain parametrized by $\{\lambda^{Z_i}, \Phi^{Z_i}\}$.
+%    \qquad 2. Generate the state sequence $Y_{i1}, \ldots Y_{iT}$ with Markov chain parametrized by $\{\lambda^{Z_i}, \Phi^{Z_i}\}$.
 %\end{tabular}
-Given the clustering model, the likelihood of the data of state transitions for all players is
+Given the clustering model, the data likelihood of state transitions for all players is
 \begin{equation}
 \label{eq:likeli}
   P(Y| Z, \{\lambda^k, \Phi^k \}_{k=1}^K) 
 = \prod_{i=1}^N \left( \prod_{s=1}^S (\lambda_s^{Z_i})^{\mathbf{1}[Y_{i1} = s]} \prod_{r=1}^S \left(\Phi_{rs}^{Z_i}\right)^{n_{irs}} \right)~,
 \end{equation}
-where $\mathbf{1} [\cdot]$ is the indicator function, and $n_{irs}$ is the number of transitions from state $r$ to state $s$ for the $i$-th player.
+where $\mathbf{1} [\cdot]$ is the indicator function, and $n_{irs}$ is the total number of transitions from state $r$ to state $s$ for the $i$-th player.
 
 %{\bf MCMC Sampling of Posterior Distribution:}
 We follow a Bayesian approach to inference, and even though some parts can be done in closed form, we still need to resort to sampling methods for computing the posterior.  Following~\cite{moises}, we use a collapsed-space sampling method \cite{neal2000markov,collapsed_escobar} to obtain samples from the reduced-spaced posterior distribution $P(Z|Y)$, instead of the full-space distribution $P(Z, \{\lambda, \Phi\} | Y)$. This allows for easy sampling steps and faster convergence rate. 
@@ -119,9 +119,9 @@ set $Z_1 = 1$; for subsequent players, sample $Z_i$ according to  the following 
 \label{eq:condition}
 \renewcommand*{\arraystretch}{1.5}
 \begin{array}{rl}
-    P(Z_i = k | Z_1, \cdots, Z_{i-1}) 
+    P(Z_i = k | Z_1, \ldots, Z_{i-1}) 
 ~~=& \frac{|\{i' < i : Z_{i'} = k\}|}{i-1 + \alpha}  ~, \quad \text{for } k \in \{Z_{i'}\}_{i' < i}  \\
-   P(Z_i = Z_{i'}, \forall i' < i | Z_1, \cdots, Z_{i-1}) 
+   P(Z_i = Z_{i'}, \forall i' < i | Z_1, \ldots, Z_{i-1}) 
 ~~=& \frac{\alpha}{i-1 + \alpha} ~,
 \end{array}
 \end{equation*}

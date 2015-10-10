@@ -1,49 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2014)
+This is BibTeX, Version 0.99d (TeX Live 2014/dev)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: draft.bib
-Warning--I didn't find a database entry for "bic"
 Warning--there's a number but no volume in dbindex
-You've used 10 entries,
+You've used 11 entries,
             2118 wiz_defined-function locations,
-            571 strings with 5718 characters,
-and the built_in function-call counts, 3573 in all, are:
-= -- 370
-> -- 138
+            577 strings with 5807 characters,
+and the built_in function-call counts, 3903 in all, are:
+= -- 405
+> -- 151
 < -- 2
-+ -- 56
-- -- 44
-* -- 264
-:= -- 583
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 52
++ -- 61
+- -- 48
+* -- 289
+:= -- 638
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 56
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 134
-empty$ -- 291
-format.name$ -- 44
-if$ -- 753
+cite$ -- 12
+duplicate$ -- 145
+empty$ -- 318
+format.name$ -- 48
+if$ -- 821
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 10
-newline$ -- 53
-num.names$ -- 20
-pop$ -- 43
+int.to.str$ -- 11
+missing$ -- 11
+newline$ -- 58
+num.names$ -- 22
+pop$ -- 45
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 45
 quote$ -- 0
-skip$ -- 90
+skip$ -- 99
 stack$ -- 0
-substring$ -- 285
-swap$ -- 26
+substring$ -- 315
+swap$ -- 27
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
+type$ -- 44
 warning$ -- 1
-while$ -- 40
-width$ -- 12
-write$ -- 114
-(There were 2 warnings)
+while$ -- 44
+width$ -- 13
+write$ -- 125
+(There was 1 warning)
